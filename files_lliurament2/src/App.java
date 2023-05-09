@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Main {
+public class App {
 
     public static void main(String[] args) throws Exception {
 
