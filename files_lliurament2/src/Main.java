@@ -6,38 +6,41 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // Crear un fitxer amb la classe File
-        // el nom del fitxer serà testfile.html
-        File file = new File("testfile.html");
+        //TODO Crear un fitxer amb la classe File
+        //el nom del fitxer serà testfile.html
+            File file = new File("testfile.html");
 
         String str = urlReader("http://inslaguineueta.cat");
 
-        // Cridar la funció perquè guardi str al fitxer
-        saveToFile(str, file, false);
+        //TODO cridar la funció perquè guardi str   al fitxer
+            saveToFile(str, file, true);
 
-        // Llegir el contingut del fitxer i imprimir-lo per pantalla.
-        String fileContent = readFromFile(file);
-        System.out.println(fileContent);
+        //TODO LLegir el contingut del fitxer i imprimir-lo
+        System.out.println(readFromFile(file));
+        //per pantalla.
     }
 
     static String readFromFile(File file) throws IOException {
+        FileReader fr = new FileReader(file);
+        BufferedReader bufr = new BufferedReader(fr);
         StringBuilder sb = new StringBuilder();
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
-        while ((line = bufferedReader.readLine()) != null) {
+        while((line = bufr.readLine()) != null){
             sb.append(line);
         }
-        bufferedReader.close();
+        bufr.close();
         return sb.toString();
     }
 
     static void saveToFile(String str, File file, boolean append)
             throws IOException {
-        FileWriter fileWriter = new FileWriter(file, append);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(str);
-        bufferedWriter.close();
+        FileWriter fw = new FileWriter(file, true);
+
+        BufferedWriter bufw = new BufferedWriter(fw);
+
+        bufw.write(str);
+
+        bufw.close();
     }
 
     public static String urlReader(String url) throws Exception {
@@ -53,4 +56,5 @@ public class Main {
         in.close();
         return sb.toString();
     }
+
 }
