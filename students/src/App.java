@@ -23,7 +23,6 @@ public class App {
             int age = scanner.nextInt();
             System.out.println("Introdueix el número d'assignatures matriculades de l'estudiant " + (i + 1) + ":");
             int numSubjects = scanner.nextInt();
-            students[i] = new Student(name, age, numSubjects);
         }
     }
 
@@ -40,30 +39,3 @@ public class App {
     }
 }
 
-class Student {
-    private String name;
-    private int age;
-    private int numSubjects;
-
-    public Student(String name, int age, int numSubjects) {
-        this.name = name;
-        this.age = age;
-        this.numSubjects = numSubjects;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getNumSubjects() {
-        return numSubjects;
-    }
-
-    public String toString() {
-        return "Nom: " + name + ", Edat: " + age + ", Assignatures: " + numSubjects;
-    }
-}
